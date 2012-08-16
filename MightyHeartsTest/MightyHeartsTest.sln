@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MightyHeartsTest", "MightyHeartsTest\MightyHeartsTest.csproj", "{05FCFD68-CC26-47B3-A44A-23C95B8D1439}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05FCFD68-CC26-47B3-A44A-23C95B8D1439}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05FCFD68-CC26-47B3-A44A-23C95B8D1439}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05FCFD68-CC26-47B3-A44A-23C95B8D1439}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05FCFD68-CC26-47B3-A44A-23C95B8D1439}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
