@@ -42,8 +42,16 @@ namespace MillionHeartsAPI
             this.state = state;
             this.url = url;
             this.urlCaption = urlCaption;
-            this.zip = zip;
-            this.addressFull = address + " " + address2 + "," + city + "," + state + " " + zip;
+            string zipformatted = zip.Remove(5, 4);
+            this.zip = zipformatted;
+            if (address2 == "")
+            {
+                this.addressFull = address + " " + address2 + ", " + city + ", " + state + " " + zipformatted;
+            }
+            else
+            {
+                this.addressFull = address + ", " + city + ", " + state + " " + zipformatted;
+            }
            
         }
 

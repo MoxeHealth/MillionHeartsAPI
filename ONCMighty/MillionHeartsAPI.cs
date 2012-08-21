@@ -191,21 +191,24 @@ namespace MillionHeartsAPI
 
                     JObject obj = JObject.Parse(json);
 
-                    return new SurescriptsResponseHelper((string)obj["address1"],
-                    (string)obj["city"],
-                    (string)obj["description"],
-                   (float)obj["distance"],
-                   (float)obj["lat"],
-                    (float)obj["lon"],
-                    (string)obj["name"],
-                   (string)obj["phone"],
-                    (Boolean)obj["precise"],
-                    (string)obj["state"],
-                    (string)obj["url"],
-                    (string)obj["urlCaption"],
-                    (string)obj["zip"],
-                    (string)obj["crossStreet"],
-                    (string)obj["address2"]);
+
+ 
+
+                    return new SurescriptsResponseHelper((string)obj["providers"][0]["address1"],
+                    (string)obj["providers"][0]["city"],
+                    (string)obj["providers"][0]["description"],
+                   (float)obj["providers"][0]["distance"],
+                   (float)obj["providers"][0]["lat"],
+                    (float)obj["providers"][0]["lon"],
+                    (string)obj["providers"][0]["name"],
+                   (string)obj["providers"][0]["phone"],
+                    (Boolean)obj["providers"][0]["precise"],
+                    (string)obj["providers"][0]["state"],
+                    (string)obj["providers"][0]["url"],
+                    (string)obj["providers"][0]["urlCaption"],
+                    (string)obj["providers"][0]["zip"],
+                    (string)obj["providers"][0]["crossStreet"],
+                    (string)obj["providers"][0]["address2"]);
 
                 }
                   else
