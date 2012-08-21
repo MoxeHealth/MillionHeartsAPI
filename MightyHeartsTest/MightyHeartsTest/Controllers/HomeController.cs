@@ -15,7 +15,8 @@ namespace MightyHeartsTest.Controllers
             var archpost = new ArchimedesPostHelper("40", "M", "70", "180", "F", "T", "T", "F", "120", "80", "100", "50", "50", "100", "8.0", "F", "F", "2", "F", "1", "1", "F");
             var makepost = new MightyHeartsAPI.MightyHeartsAPI();
             var post = makepost.sendArchimedesDataFull(archpost);
-            ViewBag.post = post;
+            post.
+        
             return View();
         }
 

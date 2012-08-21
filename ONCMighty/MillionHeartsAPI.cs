@@ -11,11 +11,11 @@ using System.Text;
 
 
 
-namespace MightyHeartsAPI
+namespace MillionHeartsAPI
 {
-    //NAME: MightyHeartsAPI
+    //NAME: MillionHeartsAPI
     //AUTHOR: Mark Olschesky
-    //PURPOSE: Contains the classes to make API calls needed for the Mighty Hearts Challenge, sponsored by ONC.
+    //PURPOSE: Contains the classes to make API calls needed for the Million Hearts Challenge, sponsored by ONC.
     //COPYRIGHT: MIT License - Please attribute ownership back to the author/source company. You must include the MIT License in all included iterations of the code.
     /*
     Copyright (c) 2012 Mox eHealth, LLC.
@@ -29,9 +29,9 @@ namespace MightyHeartsAPI
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
     IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. */
-    public partial class MightyHeartsAPI
+    public partial class MillionHeartsAPI
     {
-        public MightyHeartsAPI()
+        public MillionHeartsAPI()
         {
 
         }
@@ -139,6 +139,92 @@ namespace MightyHeartsAPI
             }
         }
 
-    }
+        public SurescriptsResponseHelper closestSurescriptsPharmacy(string apiKey, float lat, float lon, int radius)
+        {
+            var url = "https://millionhearts.surescripts.net/test/Provider/Find";
+            var postdata = "apikey=" + apiKey + "&lat=" + lat.ToString() +
+                           "&lon=" + lon.ToString() + "&radius=" + radius.ToString()
+                           + "&maxResults=1";
+             try
+            {
+                //Create the Request
 
-}
+                var request = WebRequest.Create(url);
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded; charset=UTF-8";
+                byte[] byteArray = Encoding.UTF8.GetBytes(postdata);
+                request.ContentLength = byteArray.Length;
+                Stream dataStream = request.GetRequestStream();
+                dataStream.Write(byteArray, 0, byteArray.Length);
+                dataStream.Close();
+                var response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    //Write the Request to a string
+
+                    var mem = new MemoryStream();
+                    var responseStream = response.GetResponseStream();
+
+                    var buffer = new Byte[2048];
+                    int count = responseStream.Read(buffer, 0, buffer.Length);
+
+                    while (count > 0)
+                    {
+                        mem.Write(buffer, 0, count);
+                        count = responseStream.Read(buffer, 0, buffer.Length);
+                    }
+                    responseStream.Close();
+                    mem.Close();
+
+
+                    var responseArray = mem.ToArray();
+                    var encoding = new System.Text.UTF8Encoding();
+
+                    //Write to a variable
+
+                    var json = encoding.GetString(responseArray);
+
+                    //Parse into JSON
+
+                    
+
+                    JObject obj = JObject.Parse(json);
+
+                    return new SurescriptsResponseHelper((string)obj["address1"],
+                    (string)obj["city"],
+                    (string)obj["description"],
+                   (float)obj["distance"],
+                   (float)obj["lat"],
+                    (float)obj["lon"],
+                    (string)obj["name"],
+                   (string)obj["phone"],
+                    (Boolean)obj["precise"],
+                    (string)obj["state"],
+                    (string)obj["url"],
+                    (string)obj["urlCaption"],
+                    (string)obj["zip"],
+                    (string)obj["crossStreet"],
+                    (string)obj["address2"]);
+
+                }
+                  else
+                {
+                    throw new Exception(String.Format(
+                "Server error (HTTP {0}: {1}).",
+                response.StatusCode,
+                response.StatusDescription));
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
+
+            }
+        }
+    }
+        }
+    
+

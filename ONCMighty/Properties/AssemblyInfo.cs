@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("MightyHeartsAPI")]
-[assembly: AssemblyDescription("An API Wrapper in C# for MightyHearts Challenge")]
+[assembly: AssemblyTitle("MillionHeartsAPI")]
+[assembly: AssemblyDescription("An API Wrapper in C# for MillionHearts Challenge")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Moxe Health")]
-[assembly: AssemblyProduct("MightyHeartsAPI")]
+[assembly: AssemblyProduct("MillionHeartsAPI")]
 [assembly: AssemblyCopyright("Copyright ©  2012, mox eHealth, LLC")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
