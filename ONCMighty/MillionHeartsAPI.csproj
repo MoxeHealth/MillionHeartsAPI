@@ -8,8 +8,8 @@
     <ProjectGuid>{EE3639C7-3BEA-4A6C-8621-C29C4C3BD631}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MightyHeartsAPI</RootNamespace>
-    <AssemblyName>MightyHeartsAPI</AssemblyName>
+    <RootNamespace>MillionHeartsAPI</RootNamespace>
+    <AssemblyName>MillionHeartsAPI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

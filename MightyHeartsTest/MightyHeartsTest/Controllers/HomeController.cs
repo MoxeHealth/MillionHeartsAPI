@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MightyHeartsAPI;
+using MillionHeartsAPI;
 
 namespace MightyHeartsTest.Controllers
 {
@@ -13,9 +13,9 @@ namespace MightyHeartsTest.Controllers
         {
             ViewBag.Message = "MightyHeartsTester";;
             var archpost = new ArchimedesPostHelper("40", "M", "70", "180", "F", "T", "T", "F", "120", "80", "100", "50", "50", "100", "8.0", "F", "F", "2", "F", "1", "1", "F");
-            var makepost = new MightyHeartsAPI.MightyHeartsAPI();
+            var makepost = new MillionHeartsAPI.MillionHeartsAPI();
             var post = makepost.sendArchimedesDataFull(archpost);
-            post.
+            ViewBag.post = post;
         
             return View();
         }

@@ -1,10 +1,10 @@
-This is our Repo for the C# wrapper that we wrote for the Mighty Hearts Challenge
+This is our Repo for the C# wrapper that we wrote for the Million Hearts Challenge
 First:
-Include the MightyHeartsAPI dll in your project. This library also relies on JSON.Net and Microsoft's AntiXSS libraries, so the easiest way to do this is to use NuGET to get the package
+Include the MillionHeartsAPI dll in your project. This library also relies on JSON.Net and Microsoft's AntiXSS libraries, so the easiest way to do this is to use NuGET to get the package
  
 Or, from the Package Manager Console:
 
-    PM> Install-Package MightyHeartsAPI
+    PM> Install-Package MillionHeartsAPI
 
 When we post an update, we'll try to inform you through updates here on GitHub or on our blog at blog.moxehealth.com
 How to use the code:
@@ -15,9 +15,9 @@ You can initialize the code that you need to make a post sentence in 3 lines of 
  
 Only the first 5 values are required. We use default values for the other entries in the system. These are merely placeholders and you should handle exceptions before using this.
 
-2) Create a new MightyHeartsAPI object
+2) Create a new MillionHeartsAPI object
 
-    var makepost = new MightyHeartsAPI.MightyHeartsAPI();
+    var makepost = new MillionHeartsAPI.MillionHeartsAPI();
 
 3) Use sendArchimedesDataFull to make a POST statement to the API with your post helper as the parameter.
 
